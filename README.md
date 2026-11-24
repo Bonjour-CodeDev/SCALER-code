@@ -1,34 +1,38 @@
-<div align="center">
+<h1 align="center">SCALER</h1>
+<p align="center"><strong>Breaking the Latent Scaling Bottleneck<br>via Single-Pass Context-Anchored Latent Visual Reasoning</strong></p>
 
-# SCALER
-
-### Breaking the Latent Scaling Bottleneck<br>via Single-Pass Context-Anchored Latent Visual Reasoning
-
-<p>
-Chenfeng Wang<sup>1,2</sup> · Wei Zhai<sup>1,†</sup> · Wei He<sup>2</sup> · Xuhan Zhu<sup>2</sup> · Chunpeng Zhou<sup>2</sup><br>
-Song Yan<sup>1</sup> · Qizhen Li<sup>2</sup> · Zeyu Zhang<sup>1,2</sup> · Shuai Guo<sup>1,2</sup> · Yufei Zheng<sup>1,2</sup><br>
-Chengjun Yu<sup>1,2</sup> · Fan Lu<sup>1</sup> · Yang Cao<sup>1</sup> · Pengfei Yu<sup>2,†</sup> · Zheng-Jun Zha<sup>1</sup>
+<p align="center">
+  Chenfeng Wang<sup>1,2</sup> · Wei Zhai<sup>1,†</sup> · Wei He<sup>2</sup> · Xuhan Zhu<sup>2</sup> · Chunpeng Zhou<sup>2</sup><br>
+  Song Yan<sup>1</sup> · Qizhen Li<sup>2</sup> · Zeyu Zhang<sup>1,2</sup> · Shuai Guo<sup>1,2</sup> · Yufei Zheng<sup>1,2</sup><br>
+  Chengjun Yu<sup>1,2</sup> · Fan Lu<sup>1</sup> · Yang Cao<sup>1</sup> · Pengfei Yu<sup>2,†</sup> · Zheng-Jun Zha<sup>1</sup>
+</p>
+<p align="center">
+  <sup>1</sup> University of Science and Technology of China · <sup>2</sup> Li Auto Inc.<br>
+  <em>† Corresponding authors</em>
 </p>
 
-<p><sup>1</sup>University of Science and Technology of China<br>
-<sup>2</sup>Li Auto Inc.</p>
+<p align="center">
+  <a href="https://arxiv.org/pdf/2605.12163"><img alt="Read the SCALER paper on arXiv" src="https://img.shields.io/badge/arXiv-2605.12163-B33A40?logo=arxiv&amp;logoColor=white"></a>
+  <a href="https://bonjour-codedev.github.io/SCALER/"><img alt="Visit the SCALER project page" src="https://img.shields.io/badge/Project_Page-36715E?logo=github&amp;logoColor=white"></a>
+  <a href="https://github.com/Bonjour-CodeDev/SCALER-Code"><img alt="Visit the SCALER GitHub repository" src="https://img.shields.io/badge/GitHub-SCALER--Code-181717?logo=github&amp;logoColor=white"></a>
+  <a href="LICENSE"><img alt="Read the MIT License" src="https://img.shields.io/badge/License-MIT-596472"></a>
+</p>
 
-[Project Page](https://bonjour-codedev.github.io/SCALER/) · [Inference](inference/README.md) · [Evaluation](eval/README.md) · [Examples](inference/examples)
-
-</div>
+## Abstract
 
 <p align="center">
   <img src="assets/motivation.png" alt="Latent scaling bottleneck: autoregressive and interleaved reasoning compared with SCALER, with length-scaling and token-novelty curves" width="100%">
 </p>
 <p align="center"><em>Motivation: single-pass, context-anchored visual latents preserve visual evidence and sustain high representational novelty as the latent sequence grows.</em></p>
 
-## Overview
-
 Evaluating visual latent reasoning across task complexity and sequence length reveals a fundamental **Latent Scaling Bottleneck**: existing autoregressive methods yield modest gains only within short budgets ($\le 30$ tokens) on simple tasks, yet stagnate or degrade on complex tasks and longer sequences due to **Latent Representation Saturation** and **Over-Compressed Supervision Targets**.
 
 We propose **SCALER** (**S**ingle-Pass **C**ontext-**A**nchored **L**at**e**nt Visual **R**easoning), which introduces a lightweight *detransformer* that synthesizes spatially aligned auxiliary visual tokens from full-sequence hidden states **in a single forward pass**, anchoring each token to the original visual space. Coupled with a three-stage SFT curriculum and **ALPO** (**A**uxiliary **L**atent **P**olicy **O**ptimization) for differentiable reinforcement learning, SCALER extends effective latent length by over **30×**, sustains high step-wise cosine novelty across **1,000+ tokens**, and achieves state-of-the-art open-source performance across high-resolution perception, real-world reasoning, and out-of-distribution visual logic benchmarks.
 
-> **Release Status:** This repository provides the SCALER model implementation, standalone inference runner, and five-benchmark evaluation suite in `lmms-eval`. **Training code & Model Checkpoints will be released soon.**
+## 📢 News
+* **[Upcoming]** 🚀 **Training Code & Model Checkpoints** will be released soon.
+* **[2026-11-24]** 📄 Our Paper is released on [arXiv](https://arxiv.org/pdf/2605.12163).
+* **[2026-11-20]** 💻 Evaluation/Inference Code is released.
 
 ## Inference Pipeline
 
@@ -185,14 +189,14 @@ Additional GPU verification scripts are documented in [tests/README.md](tests/RE
 ## Citation
 
 ~~~bibtex
-@article{wang2026scaler,
-  title   = {SCALER: Breaking the Latent Scaling Bottleneck via Single-Pass Context-Anchored Latent Visual Reasoning},
-  author  = {Chenfeng Wang and Wei Zhai and Wei He and Xuhan Zhu and Chunpeng Zhou and
-             Song Yan and Qizhen Li and Zeyu Zhang and Shuai Guo and Yufei Zheng and
-             Chengjun Yu and Fan Lu and Yang Cao and Pengfei Yu and Zheng-Jun Zha},
-  journal = {arXiv preprint},
-  year    = {2026},
-  url     = {https://bonjour-codedev.github.io/SCALER/}
+@misc{wang2026scalerbreakinglatentscaling,
+      title={SCALER: Breaking the Latent Scaling Bottleneck via Single-Pass Context-Anchored Latent Visual Reasoning}, 
+      author={Chenfeng Wang and Wei Zhai and Wei He and Xuhan Zhu and Chunpeng Zhou and Song Yan and Qizhen Li and Zeyu Zhang and Shuai Guo and Yufei Zheng and Chengjun Yu and Fan Lu and Yang Cao and Pengfei Yu and Zheng-Jun Zha},
+      year={2026},
+      eprint={2605.12163},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2605.12163}, 
 }
 ~~~
 
